@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="ejemplosApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>http-request</title>
+
+
+        <!-- Incluir Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="css/animate.css">
+
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+
+        <script src="js/app.js"></script>
+        
+    </head>    
+    <body>
+
+        <div class="container" ng-controller="mainCtrl">
+            
+            <h1>$HTTP Request</h1>
+            <h4>Data dinámica</h4>
+            <hr>
+
+            <div>
+                {{profesores | json}}
+            </div>
+            
+            <br>
+            <hr>
+            <h2>ng-include</h2>
+            <h4>Datos dinámicos</h4>
+
+            <br>
+
+            <div ng-include="tblProfesores"></div>
+
+            <h2>Tiempo</h2>
+            <h4>Manejo de recursos online y API</h4>
+
+            <br>
+            {{geo | json}}
+            <br>
+            <br>
+            Latitud y longitud: {{geo.coord.lat}} y {{geo.coord.lon}}
+            <br>
+            País: {{geo.sys.country}}
+            <br>
+            Amanece: {{geo.sys.sunrise | date:'HH:mm:ss'}}
+            <br>
+            Anochece: {{geo.sys.sunset | date:'HH:mm:ss'}}
+            <br>
+            Temperatura actual: {{kelvinCelcius(geo.main.temp)}}
+
+
+        </div><!-- fin del listadoCtrl -->
+
+    </body>
+</html>
